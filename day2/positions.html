@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positiona</title>
+    <style>
+        .content{
+            border: 2px solid black;
+            position: relative;
+            /* position: absolute; */
+            width: 100%;
+            height: 50vh;
+        }
+
+        body{
+            height: 200vh;
+        }
+
+        .box{
+            height: 100px;
+            width: 100px;   
+            background-color: blue;
+            border: 1px solid black;
+        }
+
+        .box1{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+
+        .box2{
+            position: sticky;
+            top: 20%;
+            left: 50%;
+        }
+
+        .min-box{
+            background-color: aqua;
+            position: absolute;
+            height: 50px;
+            width: 50px;
+            top: 50%;
+            left: 50%;
+        }
+
+        .min-box:hover{
+            cursor: progress;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="box box1"><h2>Box 1</h2></div>
+        <div class="box box2"><h2>Box 2</h2>
+            <div class="min-box">Mini Box</div>
+        </div>
+        <div class="box box3"><h2>Box 3</h2>
+           
+        </div>
+        <div class="box box4"><h2>Box 4</h2></div>
+    </div>
+</body>
+</html>

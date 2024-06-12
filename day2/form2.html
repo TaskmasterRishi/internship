@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+
+<body>
+    <form id="registrationForm">
+        <table>
+            <tr>
+                <td><label for="name">Name</label></td>
+                <td><input type="text" name="name" id="name" required></td>
+            </tr>
+            <tr>
+                <td><label for="fathername">Father's Name</label></td>
+                <td><input type="text" name="fathername" id="fathername" required></td>
+            </tr>
+            <tr>
+                <td><label for="postalAddress">Postal Address</label></td>
+                <td><textarea name="postalAddress" id="postalAddress" required></textarea></td>
+            </tr>
+            <tr>
+                <td><label for="personalAddress">Personal Address</label></td>
+                <td><textarea name="personalAddress" id="personalAddress" required></textarea></td>
+            </tr>
+            <tr>
+                <td><label>Sex</label></td>
+                <td>
+                    <input type="radio" value="male" name="gender" id="male" required>Male
+                    <input type="radio" value="female" name="gender" id="female">Female
+                </td>
+            </tr>
+            <tr>
+                <td><label for="city">City</label></td>
+                <td>
+                    <select name="city" id="city" required>
+                        <option value="" selected>Select city</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Rajkot">Rajkot</option>
+                        <option value="Surat">Surat</option>
+                        <option value="Vadodara">Vadodara</option>
+                        <option value="Gandhinagar">Gandhinagar</option>
+                        <option value="Abraa ka Dabra">Abraa ka Dabra</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="course">Course</label></td>
+                <td>
+                    <select name="course" id="course" required>
+                        <option value="" selected>Select course</option>
+                        <option value="IT">IT</option>
+                        <option value="CP">CP</option>
+                        <option value="ME">ME</option>
+                        <option value="EC">EC</option>
+                        <option value="EL">EL</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="district">District</label></td>
+                <td>
+                    <select name="district" id="district" required>
+                        <option value="" selected>Select district</option>
+                        <option value="Gujarat">Rajkot</option>
+                        <option value="Maharashtra">Surat</option>
+                        <option value="Anand">Anand</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="state">State</label></td>
+                <td>
+                    <select name="state" id="state" required>
+                        <option value="" selected>Select state</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="country">Country</label></td>
+                <td>
+                    <select name="country" id="country" required>
+                        <option value="" selected>Select country</option>
+                        <option value="India">India</option>
+                        <option value="USA">USA</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="pincode">Pincode</label></td>
+                <td><input type="number" name="pincode" id="pincode" required></td>
+            </tr>
+            <tr>
+                <td><label for="email">Email ID</label></td>
+                <td><input type="email" name="email" id="email" required></td>
+            </tr>
+            <tr>
+                <td><label for="dob">DOB</label></td>
+                <td><input type="date" name="dob" id="dob" required></td>
+            </tr>
+            <tr>
+                <td><label for="mobile">Mobile No</label></td>
+                <td><input type="number" name="mobile" id="mobile" required></td>
+            </tr>
+            <tr>
+                <td><input type="reset" value="Reset"></td>
+                <td><input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+
+    <table id="displayTable" border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Father's Name</th>
+                <th>Postal Address</th>
+                <th>Personal Address</th>
+                <th>Sex</th>
+                <th>City</th>
+                <th>Course</th>
+                <th>District</th>
+                <th>State</th>
+                <th>Country</th>
+                <th>Pincode</th>
+                <th>Email ID</th>
+                <th>DOB</th>
+                <th>Mobile No</th>
+            </tr>
+        </thead>
+        <tbody id="formdata">
+        </tbody>
+    </table>
+
+    <script>
+        let form = document.getElementById("registrationForm");
+        let tbody = document.getElementById("formdata")
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            let name = document.getElementById("name");
+            let fatherName = document.getElementById("fatherName");
+            let postalAddress = document.getElementById("postalAddress");
+            let personalAddress = document.getElementById("personalAddress");
+            let sex = document.querySelector('input[name="gender"]:checked').value;
+            let city = document.getElementById("city");
+            let course = document.getElementById("course");
+            let district = document.getElementById("district");
+            let state = document.getElementById("state");
+            let country = document.getElementById("country");
+            let pincode = document.getElementById("pincode");
+            let email = document.getElementById("email");
+            let dob = document.getElementById("dob");
+            let mobileNo = document.getElementById("mobileNo");
+
+            tbody.innerHTML += `
+                <tr>
+                    <td>${name.value}</td>
+                    <td>${fatherName.value}</td>
+                    <td>${postalAddress.value}</td>
+                    <td>${personalAddress.value}</td>
+                    <td>${sex}</td>
+                    <td>${city.value}</td>
+                    <td>${course.value}</td>
+                    <td>${district.value}</td>
+                    <td>${state.value}</td>
+                    <td>${country.value}</td>
+                    <td>${pincode.value}</td>
+                    <td>${email.value}</td>
+                    <td>${dob.value}</td>
+                    <td>${mobileNo.value}</td>
+                </tr>
+            `
+
+            this.reset();
+        });
+    </script>
+</body>
+
+</html>

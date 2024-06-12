@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration Form</title>
+    <style>
+      .error { color: red; }
+    </style>
+  </head>
+
+  <body>
+    <form id="registrationForm" action="" method="post" onsubmit="return validateForm()">
+      <table>
+        <tr>
+          <td><label for="name">Name</label></td>
+          <td><input type="text" name="name" id="name" /></td>
+        </tr>
+        <tr>
+          <td><label for="fathername">Father's Name</label></td>
+          <td><input type="text" name="fathername" id="fathername" /></td>
+        </tr>
+        <tr>
+          <td><label for="postalAddress">Postal Address</label></td>
+          <td><textarea name="postalAddress" id="postalAddress"></textarea></td>
+        </tr>
+        <tr>
+          <td><label for="personalAddress">Personal Address</label></td>
+          <td><textarea name="personalAddress" id="personalAddress"></textarea></td>
+        </tr>
+        <tr>
+          <td><label for="gender">Sex</label></td>
+          <td>
+            <input type="radio" value="male" name="gender" id="male" />Male
+            <input type="radio" value="female" name="gender" id="female" />Female
+          </td>
+        </tr>
+        <tr>
+          <td><label for="city">City</label></td>
+          <td>
+            <select name="city" id="city">
+              <option value="" selected>Select city</option>
+              <option value="Mumbai">Mumbai</option>
+              <option value="Rajkot">Rajkot</option>
+              <option value="Surat">Surat</option>
+              <option value="Vadodara">Vadodara</option>
+              <option value="Gandhinagar">Gandhinagar</option>
+              <option value="Abraa ka Dabra">Abraa ka Dabra</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="course">Course</label></td>
+          <td>
+            <select name="course" id="course">
+              <option value="" selected>Select course</option>
+              <option value="IT">IT</option>
+              <option value="CP">CP</option>
+              <option value="ME">ME</option>
+              <option value="EC">EC</option>
+              <option value="EL">EL</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="district">District</label></td>
+          <td>
+            <select name="district" id="district">
+              <option value="" selected>Select district</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Maharashtra">Maharashtra</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="state">State</label></td>
+          <td>
+            <select name="state" id="state">
+              <option value="" selected>Select state</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Maharashtra">Maharashtra</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="country">Country</label></td>
+          <td>
+            <select name="country" id="country">
+              <option value="" selected>Select country</option>
+              <option value="India">India</option>
+              <option value="USA">USA</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="pincode">Pincode</label></td>
+          <td><input type="number" name="pincode" id="pincode" /></td>
+        </tr>
+        <tr>
+          <td><label for="email">Email</label></td>
+          <td><input type="email" name="email" id="email" /></td>
+        </tr>
+        <tr>
+          <td><label for="dob">DOB</label></td>
+          <td><input type="date" name="dob" id="dob" /></td>
+        </tr>
+        <tr>
+          <td><label for="mobile">Mobile No</label></td>
+          <td><input type="tel" name="mobile" id="mobile" /></td>
+        </tr>
+        <tr>
+          <td><input type="reset" value="Reset" /></td>
+          <td><input type="submit" value="Submit" /></td>
+        </tr>
+      </table>
+    </form>
+
+    <script>
+      function validateForm() {
+        const form = document.forms["registrationForm"];
+        const name = form["name"].value;
+        const fathername = form["fathername"].value;
+        const postalAddress = form["postalAddress"].value;
+        const personalAddress = form["personalAddress"].value;
+        const gender = form["gender"].value;
+        const city = form["city"].value;
+        const course = form["course"].value;
+        const district = form["district"].value;
+        const state = form["state"].value;
+        const country = form["country"].value;
+        const pincode = form["pincode"].value;
+        const email = form["email"].value;
+        const dob = form["dob"].value;
+        const mobile = form["mobile"].value;
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (name === "") {
+          alert("Name must be filled out");
+          return false;
+        }
+        if (fathername === "") {
+          alert("Father's Name must be filled out");
+          return false;
+        }
+        if (postalAddress === "") {
+          alert("Postal Address must be filled out");
+          return false;
+        }
+        if (personalAddress === "") {
+          alert("Personal Address must be filled out");
+          return false;
+        }
+        if (!form["gender"][0].checked && !form["gender"][1].checked) {
+          alert("Gender must be selected");
+          return false;
+        }
+        if (city === "") {
+          alert("City must be selected");
+          return false;
+        }
+        if (course === "") {
+          alert("Course must be selected");
+          return false;
+        }
+        if (district === "") {
+          alert("District must be selected");
+          return false;
+        }
+        if (state === "") {
+          alert("State must be selected");
+          return false;
+        }
+        if (country === "") {
+          alert("Country must be selected");
+          return false;
+        }
+        if (pincode === "" || pincode.length !== 6) {
+          alert("Pincode must be a 6-digit number");
+          return false;
+        }
+        if (email === "") {
+          alert("Email must be filled out");
+          return false;
+        }
+        if (!emailPattern.test(email)) {
+          alert("Invalid email format");
+          return false;
+        }
+        if (dob === "") {
+          alert("Date of Birth must be filled out");
+          return false;
+        }
+        if (mobile === "" || mobile.length !== 10) {
+          alert("Mobile number must be a 10-digit number");
+          return false;
+        }
+        return true;
+      }
+    </script>
+  </body>
+</html>

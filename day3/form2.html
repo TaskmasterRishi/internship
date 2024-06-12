@@ -114,72 +114,8 @@
         </table>
     </form>
 
-    <table id="displayTable" border="1">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Father's Name</th>
-                <th>Postal Address</th>
-                <th>Personal Address</th>
-                <th>Sex</th>
-                <th>City</th>
-                <th>Course</th>
-                <th>District</th>
-                <th>State</th>
-                <th>Country</th>
-                <th>Pincode</th>
-                <th>Email ID</th>
-                <th>DOB</th>
-                <th>Mobile No</th>
-            </tr>
-        </thead>
-        <tbody id="formdata">
-        </tbody>
-    </table>
 
-    <script>
-        let form = document.getElementById("registrationForm");
-        let tbody = document.getElementById("formdata")
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            let name = document.getElementById("name");
-            let fatherName = document.getElementById("fatherName");
-            let postalAddress = document.getElementById("postalAddress");
-            let personalAddress = document.getElementById("personalAddress");
-            let sex = document.querySelector('input[name="gender"]:checked').value;
-            let city = document.getElementById("city");
-            let course = document.getElementById("course");
-            let district = document.getElementById("district");
-            let state = document.getElementById("state");
-            let country = document.getElementById("country");
-            let pincode = document.getElementById("pincode");
-            let email = document.getElementById("email");
-            let dob = document.getElementById("dob");
-            let mobileNo = document.getElementById("mobileNo");
-
-            tbody.innerHTML += `
-                <tr>
-                    <td>${name.value}</td>
-                    <td>${fatherName.value}</td>
-                    <td>${postalAddress.value}</td>
-                    <td>${personalAddress.value}</td>
-                    <td>${sex}</td>
-                    <td>${city.value}</td>
-                    <td>${course.value}</td>
-                    <td>${district.value}</td>
-                    <td>${state.value}</td>
-                    <td>${country.value}</td>
-                    <td>${pincode.value}</td>
-                    <td>${email.value}</td>
-                    <td>${dob.value}</td>
-                    <td>${mobileNo.value}</td>
-                </tr>
-            `
-
-            this.reset();
-        });
-    </script>
+    <script src="object.js"></script>
 </body>
 
 </html>

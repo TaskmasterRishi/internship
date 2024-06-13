@@ -13,13 +13,18 @@ function myPromise() {
     )
 }
 
-document.getElementById("fetchDataBtn").addEventListener("click", () => {
-    displayOutput(`Loading.....`)
-    myPromise().then((res) => {
+let elem = document.getElementById("fetchDataBtn")
+
+document.getElementById("fetchDataBtn").addEventListener("click", async() => {
+    displayOutput(`Loading.....`);
+    elem.style.display = "none"
+    await myPromise().then((res) => {
         displayOutput(`suscess : ${res}`)
     }).catch((err) => {
         displayOutput(`Failure : ${err}`)
     })
+    elem.style.display = "block"
+    console.log(">>>>>>>>")
 })
 
 function displayOutput(message) {

@@ -1,0 +1,6 @@
+read-> get
+create -> post
+update -> put
+delete -> delete
+
+we will perform this operation based on the requested type of method
